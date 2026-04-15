@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Dark Default Theme */
+  --bg-primary: #0B0F1A;
+  /* Deep charcoal / dark navy */
+  --bg-secondary: #0F172A;
+  /* Lighter dark navy base */
+  --bg-panel: #111827;
+  /* Slightly lighter dark for cards */
+  --bg-glass: rgba(15, 23, 42, 0.7);
+  /* Premium glassmorphism */
+
+  --text-primary: #E5E7EB;
+  /* Soft white */
+  --text-secondary: #CBD5E1;
+  /* Cool gray muted text */
+
+  --accent-color: #D4AF37;
+  /* Bright Gold */
+  --accent-hover: #FDE047;
+  /* Bright Gold */
+  --accent-gradient: linear-gradient(135deg, #C5A059 0%, #7C3AED 50%, #2563EB 100%);
+  /* Gold-Purple-Blue Gradient */
+
+  --glow-color: rgba(197, 160, 89, 0.3);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  --spacing-section: 80px;
+  --transition-speed: 0.3s;
+}
+
+body {
+  background: radial-gradient(circle at 50% 50%, #0F172A 0%, #0B0F1A 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,
+      rgba(197, 160, 89, 0.03) 0%,
+      transparent 70%);
+  z-index: -2;
+  animation: slow-orbit 60s infinite linear;
+  pointer-events: none;
+}
+
+/* Antique Light Theme (Optional Overlay) */
+.light-theme {
+  --bg-primary: #FDFCF6;
+  --bg-secondary: #F4F1EA;
+  --bg-panel: #FFFFFF;
+  --bg-glass: rgba(253, 252, 246, 0.85);
+
+  --text-primary: #2A2A2A;
+  --text-secondary: #374151;
+
+  --accent-color: #8C6A24;
+  --accent-hover: #73551A;
+  --glow-color: rgba(197, 160, 89, 0.1);
+}
+
+.light-theme body {
+  background: var(--bg-primary);
+}
+
+.light-theme body::before {
+  display: none;
+}
+
+@keyframes slow-orbit {
+  0% {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-25%, -25%) rotate(360deg);
+  }
+}
+
+@keyframes slow-orbit {
+  0% {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-25%, -25%) rotate(360deg);
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Noise Texture - Optimized */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  background-repeat: repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-speed);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-main);
+}
+
+::selection {
+  background-color: var(--accent-color);
+  color: var(--bg-primary);
+}
+
+.active-nav-link {
+  color: var(--text-primary) !important;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+
+/* Smooth Image Loading */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glow-border {
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.05);
+}
+
+.glow-border:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 30px rgba(197, 160, 89, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--accent-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+  border-color: var(--accent-hover);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+/* Skill Wheel Styles */
+.skill-wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+.skill-wheel-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.1));
+}
+
+/* Skill Card Styles */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--bg-primary);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.2);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+}
+
+.skill-logo-container {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-logo-container {
+  background: var(--bg-primary);
+  transform: rotate(5deg);
+}
+
+.skill-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-logo {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-name {
+  color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-wheel-container {
+    max-width: 500px;
+  }
+
+  .skill-card {
+    padding: 10px;
+  }
+
+  .skill-logo-container {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+  }
+}
+
+/* Category Filter Buttons */
+.category-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: var(--bg-primary);
+  border: 2px solid transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-filter-btn:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
+}
+
+.category-filter-btn.active {
+  background: var(--accent-color);
+  color: var(--bg-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.3);
+}
+
+.category-filter-btn.active:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* 3D Pyramid Styles */
+.pyramid-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.pyramid-container.pyramid-3d {
+  perspective: 1500px;
+  perspective-origin: center center;
+}
+
+.pyramid-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transform-style: preserve-3d;
+}
+
+.pyramid-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.skill-card-3d {
+  transform-style: preserve-3d;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(197, 160, 89, 0.1);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.skill-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(197, 160, 89, 0.1) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.05) 100%);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skill-card-3d .skill-logo-container,
+.skill-card-3d .skill-name {
+  position: relative;
+  z-index: 2;
+}
+
+.skill-card-3d:hover {
+  box-shadow:
+    0 20px 50px rgba(197, 160, 89, 0.3),
+    0 0 0 2px var(--accent-color);
+}
+
+/* Enhanced 3D hover effect */
+.pyramid-3d .skill-card:hover {
+  transform: translateZ(60px) rotateY(10deg) scale(1.15);
+}
+
+/* Advanced Dark Mode Pulsating Glow */
+@keyframes pulsating-glow {
+  0% {
+    box-shadow: 0 0 5px var(--glow-color);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--glow-color);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--glow-color);
+  }
+}
+
+.dark-theme .skill-card-3d:hover {
+  animation: pulsating-glow 2s infinite ease-in-out;
+  box-shadow:
+    0 20px 50px var(--glow-color),
+    0 0 0 2px var(--accent-color);
+}
+
+.dark-theme .theme-toggle-btn {
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+.dark-theme .category-filter-btn.active {
+  box-shadow: 0 4px 20px var(--glow-color);
+}
+
+/* Theme Ripple Overlay (Controlled via JS) */
+.theme-ripple {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
+/* Advanced Visual Effects */
+h1,
+h2 {
+  text-shadow: 0 0 15px rgba(229, 192, 123, 0.2);
+}
+
+.skill-logo-container {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+  background: var(--bg-secondary);
+}
+
+.light-theme .skill-logo-container {
+  box-shadow: none;
+  background: var(--bg-secondary);
+}
+
+/* Form Styles for Dark Theme */
+input,
+textarea {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 15px var(--glow-color), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.light-theme input,
+.light-theme textarea {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* Custom Scrollbar for GitHub Grid */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
