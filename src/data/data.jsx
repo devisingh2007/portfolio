@@ -19,7 +19,10 @@ export const navLinks = [
     { name: "Journey", to: "experience" },
     { name: "Skills", to: "skills" },
     { name: "Projects", to: "projects" },
+    { name: "Figma", to: "figma" },
     { name: "Hackathons", to: "hackathons" },
+    { name: "Awards", to: "achievements" },
+    { name: "Resume", to: "resume" },
     { name: "Contact", to: "contact" },
 ];
 
@@ -28,7 +31,8 @@ export const heroData = {
     title: "Frontend Developer & Full Stack Enthusiast",
     subtitle: "Building modern, responsive, and pixel-perfect web experiences.",
     ctaPrimary: "View Projects",
-    ctaSecondary: "Contact Me",
+    ctaSecondary: "Explore Journey",
+    image: "/profile-og.jpg", // Using existing profile-og.jpg as profile photo
 };
 
 export const aboutData = {
@@ -171,63 +175,112 @@ export const projectsData = [
     {
         id: 1,
         title: "Dell Store Clone",
+        category: "clones",
         description: "A responsive clone of the Dell Store website showcasing product listings, modern UI, and clean layout structure.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/dellstore-clone-by-Devisingh.git",
         demo: "https://dellstore-clone-by-devisingh.netlify.app/",
         youtube: "https://youtu.be/UUezHJprSYA",
-        image: dellImg
+        image: dellImg,
+        figma: "#"
     },
     {
         id: 2,
         title: "Godrej Enterprises Clone",
+        category: "clones",
         description: "A pixel-perfect clone of Godrej Enterprises’ official website, focusing on corporate design and responsiveness.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/godrejenterprises.com-clone-By-Devisingh.git",
         demo: "https://godrejenterprises-clone-by-devisingh.netlify.app/",
         youtube: "https://youtu.be/HoZ0sB51CPw",
-        image: godrejImg
+        image: godrejImg,
+        figma: "#"
     },
     {
         id: 3,
         title: "OYO Rooms Clone",
+        category: "clones",
         description: "A clone of the OYO Rooms website featuring hotel listings UI, navigation flow, and modern styling.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/Oyo-rooms.com-clone-by-Devisingh",
         demo: "https://oyo-clone-by-devisingh.netlify.app/",
         youtube: "https://youtu.be/SZEof37-s30",
-        image: oyoImg
+        image: oyoImg,
+        figma: "#"
     },
     {
         id: 4,
         title: "Incred Finance Clone",
+        category: "clones",
         description: "A finance website clone replicating Incred’s branding, layout structure, and professional UI design.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/Incred-finance-clone-by-Devisingh.git",
         demo: "https://incred-finance-clone-by-devisingh.netlify.app/",
         youtube: "https://youtu.be/1ANRaxBhDYA?si=Ihcj9UBX0NVkO_wR",
-        image: incredImg
+        image: incredImg,
+        figma: "#"
     },
     {
         id: 5,
         title: "Bulletproof Clone",
+        category: "clones",
         description: "A modern website clone inspired by Bulletproof’s design, focusing on strong visuals and typography.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/Bulletproof-clone-by-Devisingh.git",
         demo: "https://bulletproof-clone-by-devisingh.netlify.app/",
         youtube: "https://youtu.be/Okd-xGFTSDk?si=XtMKZoYF1mRJHJJE",
-        image: bulletproofImg
+        image: bulletproofImg,
+        figma: "#"
     },
     {
         id: 6,
         title: "Bata Clone",
+        category: "clones",
         description: "A clone of the Bata website showcasing product-focused UI, clean navigation, and responsive design principles.",
         tech: ["HTML", "CSS", "JavaScript"],
         github: "https://github.com/devisingh2007/Bata-clone-by-Devising.git",
         demo: "https://bata-clone-by-devising.netlify.app/",
         youtube: "https://youtu.be/tl_oHqYvuX8?si=RDuxVyJEy3vug9SB",
-        image: bataImg
+        image: bataImg,
+        figma: "#"
     },
+    {
+        id: 7,
+        title: "Modern Portfolio",
+        category: "frontend",
+        description: "A premium developer portfolio feature rich animations, glassmorphism, and responsive design.",
+        tech: ["React", "Framer Motion", "Tailwind"],
+        github: "https://github.com/devisingh2007/Portfolio",
+        demo: "https://devisingh-portfolio.netlify.app/",
+        youtube: "#",
+        image: dellImg, // Placeholder
+        figma: "#"
+    },
+    {
+        id: 8,
+        title: "Task Management Pro",
+        category: "fullstack",
+        description: "A full-stack project management tool with real-time updates, user authentication and team collaboration.",
+        tech: ["MongoDB", "Express", "React", "Node.js"],
+        github: "#",
+        demo: "#",
+        youtube: "#",
+        image: godrejImg, // Placeholder
+        postman: "https://documenter.getpostman.com/view/placeholder",
+        figma: "#"
+    },
+    {
+        id: 9,
+        title: "Retro Space Shooter",
+        category: "games",
+        description: "An interactive arcade game built with vanilla JavaScript and HTML5 Canvas.",
+        tech: ["JavaScript", "HTML5 Canvas"],
+        github: "#",
+        demo: "#",
+        youtube: "#",
+        image: oyoImg, // Placeholder
+        figma: "#"
+    }
 ];
 
 export const experienceData = [
@@ -311,7 +364,9 @@ export const hackathonsData = [
         title: "ArtPark CodeForge Hackathon",
         date: "2024",
         role: "Frontend & AI Integration",
-        description: "Participated in the CodeForge Hackathon organized by ArtPark (IISc). Developed an innovative solution focusing on robotics/AI integration with a seamless user interface. Selected for the final round.",
+        problemStatement: "Bridging the gap between human interaction and robotic AI interfaces for ArtPark's innovation hub.",
+        solution: "Developed an innovative solution focusing on robotics/AI integration with a seamless user interface using React and Framer Motion.",
+        description: "Participated in the CodeForge Hackathon organized by ArtPark (IISc). Selected for the final round.",
         tech: ["React.js", "Tailwind CSS", "Framer Motion"],
         link: "/src/assets/certificates/ArtPark_CodeForge_Hackathon_certificate.jpg",
         certificate: artparkCert,
@@ -322,7 +377,9 @@ export const hackathonsData = [
         title: "HackRust 1.0 Hackathon",
         date: "2024",
         role: "Systems & Web Developer",
-        description: "Competed in the first edition of HackRust, focusing on building high-performance applications using Rust and modern web technologies. Achieved finalist status among numerous teams.",
+        problemStatement: "Optimizing high-performance web applications using systems languages like Rust.",
+        solution: "Built high-performance applications using Rust and WebAssembly, integrating them with a modern React frontend.",
+        description: "Competed in the first edition of HackRust. Achieved finalist status among numerous teams.",
         tech: ["Rust", "WebAssembly", "React"],
         link: "/src/assets/certificates/HackRust_1.0_Hackathon_certificate.pdf",
         certificate: "/certificates/HackRust_1.0_Hackathon_certificate.pdf",
@@ -333,10 +390,66 @@ export const hackathonsData = [
         title: "Hack-2-Win Hackathon",
         date: "2024",
         role: "Frontend Developer",
-        description: "A competitive hackathon focused on rapid prototyping and secure application development. Built a robust frontend within limited time, reaching the final evaluation stage.",
+        problemStatement: "Rapid prototyping of secure application frontends under tight deadlines.",
+        solution: "Built a robust and secure frontend within limited time, using modern JS practices and secure coding principles.",
+        description: "A competitive hackathon focused on rapid prototyping and secure application development.",
         tech: ["HTML", "CSS", "JavaScript", "Security Basics"],
         link: "/src/assets/certificates/hack-2-win hackathon certificate.png",
         certificate: hack2winCert,
         result: "Finalist (Last Round)"
     }
 ];
+
+export const achievementsData = [
+    {
+        id: 1,
+        title: "CodeForge Finalist",
+        organization: "ArtPark (IISc Bangalore)",
+        date: "2024",
+        description: "Recognized as a finalist in the ArtPark CodeForge Hackathon for innovative AI integration.",
+        icon: "🏆"
+    },
+    {
+        id: 2,
+        title: "HackRust Finalist",
+        organization: "HackRust 1.0",
+        date: "2024",
+        description: "Top 10 finalist for building high-performance Rust + Wasm applications.",
+        icon: "🥇"
+    },
+    {
+        id: 3,
+        title: "Academic Excellence",
+        organization: "SCET Kalol",
+        date: "2025",
+        description: "Maintaining consistent performance in Computer Engineering fundamentals.",
+        icon: "🎓"
+    }
+];
+
+export const figmaData = [
+    {
+        id: 1,
+        title: "Smart Retail Dashboard",
+        description: "Modern glassmorphism dashboard design for retail analytics and inventory management.",
+        image: godrejImg, // Placeholder
+        link: "https://www.figma.com/file/placeholder1"
+    },
+    {
+        id: 2,
+        title: "Fitness Tracker App",
+        description: "Mobile app UI/UX design focusing on user engagement and workout tracking.",
+        image: dellImg, // Placeholder
+        link: "https://www.figma.com/file/placeholder2"
+    }
+];
+
+export const socialLinks = {
+    github: "https://github.com/devisingh2007",
+    linkedin: "https://www.linkedin.com/in/devisingh-rajput",
+    twitter: "https://x.com/Devisingh_CG",
+    instagram: "https://www.instagram.com/devisingh_0_2/",
+    leetcode: "https://leetcode.com/u/Devisingh_Jawansingh_rajput/",
+    youtube: "https://www.youtube.com/@DevisinghRajput-h5x",
+    email: "devisinghrajput.cg@gmail.com"
+};

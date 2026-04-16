@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { navLinks } from "../data/data";
-import { FaBars, FaTimes, FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { navLinks, socialLinks } from "../data/data";
+import { FaBars, FaTimes, FaGithub, FaLinkedinIn, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { SiLeetcode } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -19,6 +21,15 @@ const Navbar = () => {
     }, []);
 
     const toggleNav = () => setNav(!nav);
+
+    const socials = [
+        { icon: FaGithub, href: socialLinks.github, name: "GitHub" },
+        { icon: FaLinkedinIn, href: socialLinks.linkedin, name: "LinkedIn" },
+        { icon: FaXTwitter, href: socialLinks.twitter, name: "X" },
+        { icon: FaInstagram, href: socialLinks.instagram, name: "Instagram" },
+        { icon: SiLeetcode, href: socialLinks.leetcode, name: "LeetCode" },
+        { icon: FaYoutube, href: socialLinks.youtube, name: "YouTube" }
+    ];
 
     const navVariants = {
         hidden: { opacity: 0, y: -20 },
@@ -85,37 +96,33 @@ const Navbar = () => {
             {/* Right Section: Socials & Resume */}
             <div className="hidden md:flex items-center gap-6 z-[60]">
                 <div className="flex gap-4 items-center pr-2">
-                    <motion.a
-                        whileHover={{ y: -3, color: "var(--accent-color)" }}
-                        href="https://github.com/devisingh2007"
-                        target="_blank"
-                        className="text-[var(--text-secondary)] transition-colors"
-                    >
-                        <FaGithub size={20} />
-                    </motion.a>
-                    <motion.a
-                        whileHover={{ y: -3, color: "var(--accent-color)" }}
-                        href="https://linkedin.com/in/devisingh-rajput"
-                        target="_blank"
-                        className="text-[var(--text-secondary)] transition-colors"
-                    >
-                        <FaLinkedinIn size={20} />
-                    </motion.a>
+                    {socials.map((item, index) => (
+                        <motion.a
+                            key={index}
+                            whileHover={{ y: -3, color: "var(--accent-color)" }}
+                            href={item.href}
+                            target="_blank"
+                            className="text-[var(--text-secondary)] transition-colors"
+                            title={item.name}
+                        >
+                            <item.icon size={18} />
+                        </motion.a>
+                    ))}
                 </div>
 
-                <motion.a
-                    href="/resume.pdf"
-                    download
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative group overflow-hidden px-8 py-2.5 rounded-full text-white font-black text-[11px] uppercase tracking-widest shadow-xl transition-all"
+                <Link
+                    to="resume"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="relative group overflow-hidden px-8 py-2.5 rounded-full text-white font-black text-[11px] uppercase tracking-widest shadow-xl transition-all cursor-pointer"
                     style={{ background: "var(--accent-gradient)" }}
                 >
-                    <span className="relative z-10 flex items-center gap-2">
-                        Resume <FaDownload size={10} />
+                    <span className="relative z-10">
+                        View Resume
                     </span>
                     <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                </motion.a>
+                </Link>
             </div>
 
             {/* Hamburger Icon */}
@@ -166,13 +173,12 @@ const Navbar = () => {
                             transition={{ delay: 0.6 }}
                             className="p-12 border-t border-white/5 flex flex-col items-center gap-8 bg-black/20"
                         >
-                            <div className="flex gap-10">
-                                <a href="https://github.com/devisingh2007" target="_blank" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                                    <FaGithub size={28} />
-                                </a>
-                                <a href="https://linkedin.com/in/devisingh-rajput" target="_blank" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                                    <FaLinkedinIn size={28} />
-                                </a>
+                            <div className="flex gap-6 flex-wrap justify-center">
+                                {socials.map((item, index) => (
+                                    <a key={index} href={item.href} target="_blank" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+                                        <item.icon size={24} />
+                                    </a>
+                                ))}
                             </div>
                             <p className="text-[var(--text-secondary)] text-sm tracking-widest uppercase opacity-50">&copy; 2026 Devisingh Rajput</p>
                         </motion.div>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devisingh-portfolio.netlify.app/sitemap.xml

@@ -6,7 +6,9 @@ import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
+import Figma from "./sections/Figma";
 import Hackathons from "./sections/Hackathons";
+import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
@@ -18,7 +20,7 @@ function App() {
 
   // Basic SEO / Title update (In a real app, use React Helmet)
   useEffect(() => {
-    document.title = "Saad Patkar | Frontend Developer";
+    document.title = "Devisingh Rajput | Frontend Portfolio";
   }, []);
 
   return (
@@ -43,7 +45,10 @@ function App() {
           <Skills />
           <Experience />
           <Projects />
+          <Figma />
           <Hackathons />
+          <Achievements />
+          
           <Contact />
 
           <Footer />
