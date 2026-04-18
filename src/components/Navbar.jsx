@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { navLinks, socialLinks } from "../data/data";
-import { FaBars, FaTimes, FaGithub, FaLinkedinIn, FaYoutube, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { SiLeetcode } from "react-icons/si";
+import { navLinks } from "../data/data";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -22,14 +20,7 @@ const Navbar = () => {
 
     const toggleNav = () => setNav(!nav);
 
-    const socials = [
-        { icon: FaGithub, href: socialLinks.github, name: "GitHub" },
-        { icon: FaLinkedinIn, href: socialLinks.linkedin, name: "LinkedIn" },
-        { icon: FaXTwitter, href: socialLinks.twitter, name: "X" },
-        { icon: FaInstagram, href: socialLinks.instagram, name: "Instagram" },
-        { icon: SiLeetcode, href: socialLinks.leetcode, name: "LeetCode" },
-        { icon: FaYoutube, href: socialLinks.youtube, name: "YouTube" }
-    ];
+
 
     const navVariants = {
         hidden: { opacity: 0, y: -20 },
@@ -93,23 +84,8 @@ const Navbar = () => {
                 ))}
             </ul>
 
-            {/* Right Section: Socials & Resume */}
+            {/* Right Section: Resume */}
             <div className="hidden md:flex items-center gap-6 z-[60]">
-                <div className="flex gap-4 items-center pr-2">
-                    {socials.map((item, index) => (
-                        <motion.a
-                            key={index}
-                            whileHover={{ y: -3, color: "var(--accent-color)" }}
-                            href={item.href}
-                            target="_blank"
-                            className="text-[var(--text-secondary)] transition-colors"
-                            title={item.name}
-                        >
-                            <item.icon size={18} />
-                        </motion.a>
-                    ))}
-                </div>
-
                 <Link
                     to="resume"
                     smooth={true}
@@ -173,13 +149,6 @@ const Navbar = () => {
                             transition={{ delay: 0.6 }}
                             className="p-12 border-t border-white/5 flex flex-col items-center gap-8 bg-black/20"
                         >
-                            <div className="flex gap-6 flex-wrap justify-center">
-                                {socials.map((item, index) => (
-                                    <a key={index} href={item.href} target="_blank" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                                        <item.icon size={24} />
-                                    </a>
-                                ))}
-                            </div>
                             <p className="text-[var(--text-secondary)] text-sm tracking-widest uppercase opacity-50">&copy; 2026 Devisingh Rajput</p>
                         </motion.div>
                     </motion.div>
