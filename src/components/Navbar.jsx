@@ -86,11 +86,10 @@ const Navbar = () => {
 
             {/* Right Section: Resume */}
             <div className="hidden md:flex items-center gap-6 z-[60]">
-                <Link
-                    to="resume"
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
+                <a
+                    href="https://drive.google.com/file/d/18t6Tb-5n6fwfP3HbWkxs4Iz2hBe-Nt-h/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="relative group overflow-hidden px-8 py-2.5 rounded-full text-white font-black text-[11px] uppercase tracking-widest shadow-xl transition-all cursor-pointer"
                     style={{ background: "var(--accent-gradient)" }}
                 >
@@ -98,7 +97,7 @@ const Navbar = () => {
                         View Resume
                     </span>
                     <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                </Link>
+                </a>
             </div>
 
             {/* Hamburger Icon */}
